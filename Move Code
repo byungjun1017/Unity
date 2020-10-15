@@ -1,0 +1,21 @@
+using UnityEngine;
+using System.Collections;
+public class Control : MonoBehaviour {
+       // Update is called once per frame
+        int speed=10; //스피드
+       float xMove,yMove;
+       void Update () {
+              xMove = 0;
+              yMove = 0;
+
+              if (Input.GetKey(KeyCode.RightArrow)) //오른쪽 방향키를 누를 시
+                     xMove = speed * Time.deltaTime;
+              else if (Input.GetKey(KeyCode.LeftArrow)) //왼쪽 방향키를 누를 시
+                     xMove = -speed * Time.deltaTime;
+              if (Input.GetKey(KeyCode.UpArrow)) //위쪽 방향키를 누를 시
+                     yMove = speed * Time.deltaTime;
+              else if (Input.GetKey(KeyCode.DownArrow)) // 아래쪽 방향키를 누를 시
+                     yMove = -speed * Time.deltaTime;
+              this.transform.Translate(new Vector3(xMove,yMove,0));
+       }
+}
